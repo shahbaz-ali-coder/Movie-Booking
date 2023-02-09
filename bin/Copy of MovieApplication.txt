@@ -1,0 +1,99 @@
+
+DROP DATABASE IF EXISTS MovieApplication;
+
+CREATE DATABASE IF NOT EXISTS MovieApplication;
+
+USE MovieApplication;
+
+SELECT 'CREATING DATABASE STRUCTURE' as 'INFO';
+
+DROP TABLE IF EXISTS movies;
+CREATE TABLE movies(
+	id INTEGER AUTO_INCREMENT ,
+	name VARCHAR(80) NOT NULL,
+	coverPhoto VARCHAR(100) NOT NULL,
+	director VARCHAR(50) NOT NULL,
+	starring VARCHAR(100) NOT NULL,
+	length INT NOT NULL,
+	rating VARCHAR(10) NOT NULL,
+	genre VARCHAR(50) NOT NULL,
+	releaseDate DATE() NOT NULL,
+	description VARCHAR(1500) NOT NULL,
+	PRIMARY KEY(id) );
+
+SELECT 'INSERTING DATA INTO TABLE product' as 'INFO';
+	INSERT INTO movies VALUES ( null, "American Sniper" ,"AmericanSniper.jpg","Clint Eastwood","Bradley Cooper, Sienna Miller, Kyle Gallner",132,"15A","War,Drama", 16/01/2015 , "Navy SEAL sniper Chris Kyle's pinpoint accuracy saves countless lives on the battlefield and turns him into a legend. Back home to his wife and kids after four tours of duty, however, Chris finds that it is the war he can't leave behind." );
+	INSERT INTO movies VALUES ( null, "BirdMan" ,"BirdMan.jpg","Alejandro Gonzalez Inarritu","Michael Keaton, Zach Galifianakis, Edward Norton",119,"15A","Dark Comedy",01/01/2015 , "A washed-up actor who once played an iconic superhero must overcome his ego and family trouble as he mounts a Broadway play in a bid to reclaim his past glory." );
+	INSERT INTO movies VALUES (null, "Ex-machina", "exMachina.jpg", "Alex Garland","Domhnal Gleeson, Oscar Isaac, Alicia Vikander" ,110 , "15A","Sci-Fi, Drama",23/01/2015,"A young programmer is selected to participate in a breakthrough experiment in artificial intelligence by evaluating the human qualities of a breathtaking female A.I");	
+	INSERT INTO movies VALUES (null, "Jupiter Ascending", "JupiterAscending.jpg", "Andy Wachowski, Lana Wachowski","Mila Kunis, Channing Tatum" ,127 , "12A","Sci-Fi",06/02/2015,"In the future, a young destitute human woman gets targeted for assassination by the Queen of the Universe, and begins her destiny to finish the Queen's reign.");
+	INSERT INTO movies VALUES (null, "Taken 3", "Taken3.jpg", "Olivier Megaton","Liam Neeson, Maggie Grace, Famke Janssen" ,120 , "12A","Action",09/01/2015,"Bryan Mills, an Ex-government operative is accused of a ruthless murder he never committed or witnessed as he is tracked and pursued.");
+	INSERT INTO movies VALUES (null, "The Theory of Everything", "TheoryOfEverything", "James Marsh","Eddie Redmayne, Felicity Jones, Tom Prior" ,125 , "12A","Biographical Drama",01/01/2015,"Adapted from the memoir Travelling to Infinity: My Life with Stephen by Jane Wilde Hawking, which deals with her relationship with her ex-husband, theoretical physicist Stephen Hawking, his diagnosis of motor neuron disease, and his success in physics.");
+	
+SELECT * FROM movies;
+
+
+DROP TABLE IF EXISTS showing;
+CREATE TABLE showing(
+	id INTEGER AUTO_INCREMENT ,
+	movieName VARCHAR(80),
+	showingDate DATE,
+	showingTime VARCHAR(30),
+	theatreNo INT,
+	seatCounter INT,
+	PRIMARY KEY(id));
+
+	INSERT INTO showing VALUES ( null,"American Sniper",23/02/2015,"20:30",1,30  );
+	INSERT INTO showing VALUES ( null,"American Sniper",24/02/2015,"20:30",3,30  );
+	INSERT INTO showing VALUES ( null,"American Sniper",25/02/2015,"20:30",2,30  );
+	INSERT INTO showing VALUES ( null,"American Sniper",26/02/2015,"20:30",1,30  );
+	INSERT INTO showing VALUES ( null,"American Sniper",27/02/2015,"20:30",2,30  );
+
+	INSERT INTO showing VALUES ( null,"BirdMan" ,23/02/2015,"20:30",2,30  );
+	INSERT INTO showing VALUES ( null,"BirdMan",24/02/2015,"20:30",1,30  );
+	INSERT INTO showing VALUES ( null,"BirdMan",25/02/2015,"20:30",3,30  );
+	INSERT INTO showing VALUES ( null,"BirdMan",26/02/2015,"20:30",3,30  );
+	INSERT INTO showing VALUES ( null,"BirdMan",27/02/2015,"20:30",1,30  );
+
+	INSERT INTO showing VALUES ( null,"Ex-machina",23/02/2015,"20:30",3,30  );
+	INSERT INTO showing VALUES ( null,"Ex-machina",24/02/2015,"20:30",2,30  );
+	INSERT INTO showing VALUES ( null,"Ex-machina",25/02/2015,"20:30",1,30  );
+	INSERT INTO showing VALUES ( null,"Ex-machina",26/02/2015,"20:30",2,30  );
+	INSERT INTO showing VALUES ( null,"Ex-machina",27/02/2015,"20:30",3,30  );
+
+	INSERT INTO showing VALUES ( null,"Jupiter Ascending",23/02/2015,"16:30",1,30  );
+	INSERT INTO showing VALUES ( null,"Jupiter Ascending",24/02/2015,"16:30",3,30  );
+	INSERT INTO showing VALUES ( null,"Jupiter Ascending",25/02/2015,"16:30",2,30  );
+	INSERT INTO showing VALUES ( null,"Jupiter Ascending",26/02/2015,"16:30",1,30  );
+	INSERT INTO showing VALUES ( null,"Jupiter Ascending",27/02/2015,"16:30",2,30  );
+
+	INSERT INTO showing VALUES ( null,"Taken 3",23/02/2015,"16:30",2,30  );
+	INSERT INTO showing VALUES ( null,"Taken 3",24/02/2015,"16:30",1,30  );
+	INSERT INTO showing VALUES ( null,"Taken 3",25/02/2015,"16:30",3,30  );
+	INSERT INTO showing VALUES ( null,"Taken 3",26/02/2015,"16:30",3,30  );
+	INSERT INTO showing VALUES ( null,"Taken 3",27/02/2015,"16:30",1,30  );
+
+	INSERT INTO showing VALUES ( null,"The Theory of Everything",23/02/2015,"16:30",3,30  );
+	INSERT INTO showing VALUES ( null,"The Theory of Everything",24/02/2015,"16:30",2,30  );
+	INSERT INTO showing VALUES ( null,"The Theory of Everything",25/02/2015,"16:30",1,30  );
+	INSERT INTO showing VALUES ( null,"The Theory of Everything",26/02/2015,"16:30",2,30  );
+	INSERT INTO showing VALUES ( null,"The Theory of Everything",27/02/2015,"16:30",3,30  );
+SELECT * FROM showing;
+
+DROP TABLE IF EXISTS theatre;
+CREATE TABLE theatre(
+	id VARCHAR(30),
+	PRIMARY KEY(id));
+	INSERT INTO theatre VALUES (1);
+	INSERT INTO theatre VALUES (2);
+	INSERT INTO theatre VALUES (3);
+SELECT * FROM theatre;
+
+DROP TABLE IF EXISTS movies_showing;
+/*
+CREATE TABLE movies_showing(
+	movie_id,
+	showing_id,
+	theatre_id);
+
+SELECT * FROM movies_showing;
+*/
